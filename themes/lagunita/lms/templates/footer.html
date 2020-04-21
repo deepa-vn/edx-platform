@@ -1,0 +1,50 @@
+## mako
+<%page expression_filter="h"/>
+<%!
+  from django.urls import reverse
+  from django.utils.translation import ugettext as _
+  from branding.api import get_footer
+  from openedx.core.djangoapps.lang_pref.api import footer_language_selector_is_enabled
+%>
+<% footer = get_footer(is_secure=is_secure) %>
+<% icp_license_info = getattr(settings, 'ICP_LICENSE_INFO', {})%>
+<%namespace name='static' file='static_content.html'/>
+
+<div id="su-footer">
+  <div class="su-container">
+    <div class="su-row">
+      <div id="su-footer-logo" class="span2">
+        <a href="https://www.stanford.edu">
+          <img
+            src="${static.url('images/footer-stanford-logo.png')}"
+            alt="Stanford University"
+            width="105"
+            height="49"
+          />
+        </a>
+      </div>
+      
+      <div id="su-footer-text" class="span10">
+        <ul id="global-links" class="nav-legal">
+          % for item_num, link in enumerate(footer['navigation_links'], start=1):
+            <li id="${link['name']}" class="home"><a href="${link['url']}">${link['title']}</a></li>
+          % endfor
+        </ul>
+        <ul id="policy-links" class="nav-legal">
+          % for item_num, link in enumerate(footer['legal_links'], start=1):
+            <li id="${link['name']}" class="alt"><a href="${link['url']}" title="${link['title']}">${link['title']}</a></li>
+          % endfor
+        </ul>
+      </div>
+      <div class="clear"></div>
+      <p class="copyright vcard">
+        <span>&copy;</span>
+        <span class="fn org">Công Ty Cổ Phần Deepa</span>.
+        <span class="adr">
+          <span class="locality">Quận 7</span>,
+          <span class="region">Hồ Chí Minh</span> <span class="postal-code">720000</span>.
+        </span>
+      </p>
+    </div>
+  </div>
+</div>

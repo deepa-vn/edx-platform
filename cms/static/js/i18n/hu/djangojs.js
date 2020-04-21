@@ -101,7 +101,7 @@
       if (typeof(value) == 'undefined') {
         return (count == 1) ? singular : plural;
       } else {
-        return value.constructor === Array ? value[django.pluralidx(count)] : value;
+        return value[django.pluralidx(count)];
       }
     };
 
@@ -135,11 +135,11 @@
     /* formatting library */
 
     django.formats = {
-    "DATETIME_FORMAT": "Y. F j. H:i",
+    "DATETIME_FORMAT": "Y. F j. G.i",
     "DATETIME_INPUT_FORMATS": [
-      "%Y.%m.%d. %H:%M:%S",
-      "%Y.%m.%d. %H:%M:%S.%f",
-      "%Y.%m.%d. %H:%M",
+      "%Y.%m.%d. %H.%M.%S",
+      "%Y.%m.%d. %H.%M.%S.%f",
+      "%Y.%m.%d. %H.%M",
       "%Y.%m.%d.",
       "%Y-%m-%d %H:%M:%S",
       "%Y-%m-%d %H:%M:%S.%f",
@@ -152,17 +152,19 @@
       "%Y-%m-%d"
     ],
     "DECIMAL_SEPARATOR": ",",
-    "FIRST_DAY_OF_WEEK": 1,
+    "FIRST_DAY_OF_WEEK": "1",
     "MONTH_DAY_FORMAT": "F j.",
-    "NUMBER_GROUPING": 3,
-    "SHORT_DATETIME_FORMAT": "Y.m.d. H:i",
+    "NUMBER_GROUPING": "3",
+    "SHORT_DATETIME_FORMAT": "Y.m.d. G.i",
     "SHORT_DATE_FORMAT": "Y.m.d.",
     "THOUSAND_SEPARATOR": "\u00a0",
-    "TIME_FORMAT": "H:i",
+    "TIME_FORMAT": "G.i",
     "TIME_INPUT_FORMATS": [
+      "%H.%M.%S",
+      "%H.%M",
       "%H:%M:%S",
-      "%H:%M",
-      "%H:%M:%S.%f"
+      "%H:%M:%S.%f",
+      "%H:%M"
     ],
     "YEAR_MONTH_FORMAT": "Y. F"
   };

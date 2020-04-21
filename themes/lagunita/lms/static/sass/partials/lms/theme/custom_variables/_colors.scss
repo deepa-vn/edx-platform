@@ -1,0 +1,31 @@
+@import '_palette.scss';
+@import '_functions.scss';
+
+// main variable overrides
+$black: $dendam;
+$white: $stanford-white;
+$gray: $dennhat;
+$yellow: tinted($sun, 85%);
+$red: $dendam;
+$green: $xanhnhat;
+$blue: $sky;
+$orange: $sun;
+
+// Colors - Bootstrap
+$primary:       $xanhdam;
+$secondary:     shaded($palo-alto, 50%);
+$inverse:       tinted($light-sage, 60%);
+$disabled:      $stone;
+$success:       $mint;
+$info:          $xanhdam;
+$warning:       $sun;
+$danger:        $dendam;
+$purchase:      $mint;
+$lightest:      $fog;
+$light:         shaded($fog, 25%);
+$dark:          $warm-gray;
+$darker:        shaded($warm-gray, 50%);
+$darkest:       shaded($warm-gray, 75%);
+$status:        $redwood;
+
+@import '_derived.scss';
